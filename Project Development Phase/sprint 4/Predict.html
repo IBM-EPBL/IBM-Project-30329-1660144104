@@ -1,0 +1,56 @@
+
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+       <meta charset="UTF-8">
+       <meta http-equiv="X-UA-Compatible" content="IE=edge">
+       <meta name="Viewport" content="width=device-width, initialscale=1.0">
+       <title> Plant Disease Prediction </title>
+       <link rel="stylesheet" href="/static/style1.css" type="text/css">
+       <style>
+               body{
+                  background-image: url('/static/back_ground.jpg');
+                  background-repeat: no-repeat;
+                  background-attachment: fixed;  
+                  background-size: cover;
+                  }
+                   
+      </style>
+   </head>
+   
+   <body>
+   <div id="predict">
+   <h1 id="head">Plant Disease Prediction</h1>
+   <div id="wrapper">
+     <ul>
+      <li> <a href="{{url_for('index')}}">Home</a></li>
+      <li> <a href="{{url_for('prediction')}}">Predict</a></li>
+     </ul>
+    </div>
+    <div class="form">
+       <h2>Here you can choose the Type of the plant</h2>
+       <form action="{{url_for('predict_img')}}" method="POST" enctype = "multipart/form-data">
+       <div class="input">
+          <select name="plant" id="button">
+             <option value="Fruit">Fruit</option>
+             <option value="vegetable">vegetable</option>
+          </select>
+        <div>
+          <label for="file"></label>
+          <input type="file" id="file" name="image">
+        </div>
+       </div>
+          <div class="btn">
+               <button type="submit">Predict</button>
+          </div>
+      </form>
+      </div>
+    </div>
+    <h1 style="width:500px;
+    position:absolute;
+    top:250px;
+    left:800px;
+    background-color:rgba(255,255,255,.7);
+    ">{{y}}</h1>
+   </body>
+</html>
